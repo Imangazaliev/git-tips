@@ -1,0 +1,655 @@
+[
+   {
+      "title":"Everyday Git in twenty commands or so",
+      "tip":"git help everyday"
+   },
+   {
+      "title":"Show helpful guides that come with Git",
+      "tip":"git help -g"
+   },
+   {
+      "title":"Получить данные из удаленного репозитория и сбросить состояние текущей ветки к ним",
+      "tip":"git fetch --all && git reset --hard origin/master"
+   },
+   {
+      "title":"List of all files till a commit",
+      "tip":"git ls-tree --name-only -r <commit-ish>"
+   },
+   {
+      "title":"Git reset first commit",
+      "tip":"git update-ref -d HEAD"
+   },
+   {
+      "title":"Показать список конфликтующих файлов",
+      "tip":"git diff --name-only --diff-filter=U"
+   },
+   {
+      "title":"Список всех файлов, которые были изменены в коммите",
+      "tip":"git diff-tree --no-commit-id --name-only -r <commit-ish>"
+   },
+   {
+      "title":"Показать изменения с момента последнего коммита",
+      "tip":"git diff"
+   },
+   {
+      "title":"Изменения в файлах, которые находятся в индексе",
+      "tip":"git diff --cached",
+      "alternatives":[
+         "git diff --staged"
+      ]
+   },
+   {
+      "title":"Показать все изменения (для файлов которых нет в индексе и которые уже там)",
+      "tip":"git diff HEAD"
+   },
+   {
+      "title":"Показать список веток, которые уже слиты с веткой master",
+      "tip":"git branch --merged master"
+   },
+   {
+      "title":"Быстрое переключение на предыдущую ветку",
+      "tip":"git checkout -"
+   },
+   {
+      "title":"Удалить ветки, которые уже слиты с master",
+      "tip":"git branch --merged master | grep -v '^\\*' | xargs -n 1 git branch -d",
+      "alternatives":[
+         "git branch --merged master | grep -v '^\\*\\|  master' | xargs -n 1 git branch -d # will not delete master if master is not checked out"
+      ]
+   },
+   {
+      "title":"Показать все ветки (в том числе и удаленные ветки), а так же последний коммит в них",
+      "tip":"git branch -vv"
+   },
+   {
+      "title":"Track upstream branch",
+      "tip":"git branch -u origin/mybranch"
+   },
+   {
+      "title":"Удалить локальную ветку",
+      "tip":"git branch -d <local_branchname>"
+   },
+   {
+      "title":"Удалить ветку в удаленном репозитории",
+      "tip":"git push origin --delete <remote_branchname>",
+      "alternatives":[
+         "git push origin :<remote_branchname>"
+      ]
+   },
+   {
+      "title":"Удалить тег в локальном репозитории",
+      "tip":"git tag -d <tag-name>"
+   },
+   {
+      "title":"Удалить тег в удаленном репозитории",
+      "tip":"git push origin :refs/tags/<tag-name>"
+   },
+   {
+      "title":"Undo local changes with the last content in head",
+      "tip":"git checkout -- <file_name>"
+   },
+   {
+      "title":"Revert: отменить коммит с помощью нового коммита",
+      "tip":"git revert <commit-ish>"
+   },
+   {
+      "title":"Reset: Discard commits, advised for private branch",
+      "tip":"git reset <commit-ish>"
+   },
+   {
+      "title":"Изменить сообщение последнего коммита",
+      "tip":"git commit -v --amend"
+   },
+   {
+      "title":"Показать историю коммитов только для текущей ветки",
+      "tip":"git cherry -v master"
+   },
+   {
+      "title":"Исправить имя автора последнего коммита",
+      "tip":"git commit --amend --author='Author Name <email@address.com>'"
+   },
+   {
+      "title":"Reset author, after author has been changed in the global config",
+      "tip":"git commit --amend --reset-author --no-edit"
+   },
+   {
+      "title":"Изменить URL удаленного репозитория",
+      "tip":"git remote set-url origin <URL>"
+   },
+   {
+      "title":"Показать список удаленных репозиториев",
+      "tip":"git remote",
+      "alternatives":[
+         "git remote show"
+      ]
+   },
+   {
+      "title":"Список локальных и удаленных веток",
+      "tip":"git branch -a"
+   },
+   {
+      "title":"Список веток в удаленном репозитории",
+      "tip":"git branch -r"
+   },
+   {
+      "title":"Добавить в индекс часть файла",
+      "tip":"git add -p"
+   },
+   {
+      "title":"Автокосплит Git-команд в bash",
+      "tip":"curl http://git.io/vfhol > ~/.git-completion.bash && echo '[ -f ~/.git-completion.bash ] && . ~/.git-completion.bash' >> ~/.bashrc"
+   },
+   {
+      "title":"Изменения за указанный промежуток времени",
+      "tip":"git log --no-merges --raw --since='2 weeks ago'",
+      "alternatives":[
+         "git whatchanged --since='2 weeks ago'"
+      ]
+   },
+   {
+      "title":"Показать все коммиты с момента отделения от ветки master",
+      "tip":"git log --no-merges --stat --reverse master.."
+   },
+   {
+      "title":"Перенести коммиты из одной ветки в другую с помощью cherry-pick",
+      "tip":"git checkout <branch-name> && git cherry-pick <commit-ish>"
+   },
+   {
+      "title":"Найти ветки, которые содержат коммит с указанным хешем",
+      "tip":"git branch -a --contains <commit-ish>",
+      "alternatives":[
+         "git branch --contains <commit-ish>"
+      ]
+   },
+   {
+      "title":"Псевдонимы (alias) для команд Git",
+      "tip":"git config --global alias.<handle> <command> \ngit config --global alias.st status"
+   },
+   {
+      "title":"Спрятать текущие изменения для отслеживаемых файлов",
+      "tip":"git stash",
+      "alternatives":[
+         "git stash save"
+      ]
+   },
+   {
+      "title":"Спрятать текущие изменения, включая неотслеживаемые файлы",
+      "tip":"git stash save -u",
+      "alternatives":[
+         "git stash save --include-untracked"
+      ]
+   },
+   {
+      "title":"Показать список спрятанных изменений",
+      "tip":"git stash list"
+   },
+   {
+      "title":"Применить последние спрятанные изменения без удаления их из стека",
+      "tip":"git stash apply <stash@{n}>"
+   },
+   {
+      "title":"Применить последние спрятанные изменения и удалить их из стека",
+      "tip":"git stash pop",
+      "alternatives":[
+         "git stash apply stash@{0} && git stash drop stash@{0}"
+      ]
+   },
+   {
+      "title":"Очистить stash",
+      "tip":"git stash clear",
+      "alternatives":[
+         "git stash drop <stash@{n}>"
+      ]
+   },
+   {
+      "title":"Извлечь отдельный файл из stash",
+      "tip":"git checkout <stash@{n}> -- <file_path>",
+      "alternatives":[
+         "git checkout stash@{0} -- <file_path>"
+      ]
+   },
+   {
+      "title":"Показать все отслеживаемы файлы",
+      "tip":"git ls-files -t"
+   },
+   {
+      "title":"Показать все неотслеживаемые файлы",
+      "tip":"git ls-files --others"
+   },
+   {
+      "title":"Показать все игнорируемые файлы",
+      "tip":"git ls-files --others -i --exclude-standard"
+   },
+   {
+      "title":"Create new working tree from a repository (git 2.5)",
+      "tip":"git worktree add -b <branch-name> <path> <start-point>"
+   },
+   {
+      "title":"Create new working tree from HEAD state",
+      "tip":"git worktree add --detach <path> HEAD"
+   },
+   {
+      "title":"Не отслеживать файлы (без удаления)",
+      "tip":"git rm --cached <file_path>",
+      "alternatives":[
+         "git rm --cached -r <directory_path>"
+      ]
+   },
+   {
+      "title":"Before deleting untracked files/directory, do a dry run to get the list of these files/directories",
+      "tip":"git clean -n"
+   },
+   {
+      "title":"Принудительно удалить неотслеживаемые файлы",
+      "tip":"git clean -f"
+   },
+   {
+      "title":"Принудительно удалить неотслеживаемую директорию",
+      "tip":"git clean -f -d",
+      "alternatives":[
+         "git clean -df"
+      ]
+   },
+   {
+      "title":"Обновить все субмодули",
+      "tip":"git submodule foreach git pull",
+      "alternatives":[
+         "git submodule update --init --recursive",
+         "git submodule update --remote"
+      ]
+   },
+   {
+      "title":"Показать коммиты текущей ветки, которые будут слиты в мастер",
+      "tip":"git cherry -v master",
+      "alternatives":[
+         "git cherry -v master <branch-to-be-merged>"
+      ]
+   },
+   {
+      "title":"Переименовать ветку",
+      "tip":"git branch -m <new-branch-name>",
+      "alternatives":[
+         "git branch -m [<old-branch-name>] <new-branch-name>"
+      ]
+   },
+   {
+      "title":"Переместить ветку 'feature' на 'master' и слить ее в мастер",
+      "tip":"git rebase master feature && git checkout master && git merge -"
+   },
+   {
+      "title":"Архивировать ветку master",
+      "tip":"git archive master --format=zip --output=master.zip"
+   },
+   {
+      "title":"Изменить предыдущий коммит без изменения сообщения к коммиту",
+      "tip":"git add --all && git commit --amend --no-edit"
+   },
+   {
+      "title":"Prunes references to remote branches that have been deleted in the remote",
+      "tip":"git fetch -p",
+      "alternatives":[
+         "git remote prune origin"
+      ]
+   },
+   {
+      "title":"Retrieve the commit hash of the initial revision",
+      "tip":" git rev-list --reverse HEAD | head -1",
+      "alternatives":[
+         "git rev-list --max-parents=0 HEAD",
+         "git log --pretty=oneline | tail -1 | cut -c 1-40",
+         "git log --pretty=oneline --reverse | head -1 | cut -c 1-40"
+      ]
+   },
+   {
+      "title":"Показать дерево тегов (версий)",
+      "tip":"git log --pretty=oneline --graph --decorate --all",
+      "alternatives":[
+         "gitk --all"
+      ]
+   },
+   {
+      "title":"Deploying git tracked subfolder to gh-pages",
+      "tip":"git subtree push --prefix subfolder_name origin gh-pages",
+      "alternatives":"git subtree push --prefix subfolder_name origin branch_name"
+   },
+   {
+      "title":"Adding a project to repo using subtree",
+      "tip":"git subtree add --prefix=<directory_name>/<project_name> --squash git@github.com:<username>/<project_name>.git master"
+   },
+   {
+      "title":"Get latest changes in your repo for a linked project using subtree",
+      "tip":"git subtree pull --prefix=<directory_name>/<project_name> --squash git@github.com:<username>/<project_name>.git master"
+   },
+   {
+      "title":"Эспортировать ветку в файл (создать пакет)",
+      "tip":"git bundle create <file> <branch-name>"
+   },
+   {
+      "title":"Импортировать пакет в репозиторий",
+      "tip":"git clone repo.bundle <repo-dir> -b <branch-name>"
+   },
+   {
+      "title":"Показать название текущей ветки",
+      "tip":"git rev-parse --abbrev-ref HEAD"
+   },
+   {
+      "title":"Ignore one file on commit (e.g. Changelog)",
+      "tip":"git update-index --assume-unchanged Changelog; git commit -a; git update-index --no-assume-unchanged Changelog"
+   },
+   {
+      "title":"Спрятать изменения перед выполнением перемещения",
+      "tip":"git rebase --autostash"
+   },
+   {
+      "title":"Загрузить пулл-реквест в текущую ветку по ID",
+      "tip":"git fetch origin pull/<id>/head:<branch-name>",
+      "alternatives":[
+         "git pull origin pull/<id>/head:<branch-name>"
+      ]
+   },
+   {
+      "title":"Показать самый последний тег на текущей ветке",
+      "tip":"git describe --tags --abbrev=0"
+   },
+   {
+      "title":"Показывать изменения в одну строку",
+      "tip":"git diff --word-diff"
+   },
+   {
+      "title":"Show changes using common diff tools",
+      "tip":"git difftool -t <commit1> <commit2> <path>"
+   },
+   {
+      "title":"Don’t consider changes for tracked file",
+      "tip":"git update-index --assume-unchanged <file_name>"
+   },
+   {
+      "title":"Undo assume-unchanged",
+      "tip":"git update-index --no-assume-unchanged <file_name>"
+   },
+   {
+      "title":"Удалить все файлы, которые находятся в `.gitignore`",
+      "tip":"git clean -X -f"
+   },
+   {
+      "title":"Восстановить удаленный файл",
+      "tip":"git checkout <deleting_commit>^ -- <file_path>"
+   },
+   {
+      "title":"Restore file to a specific commit-hash",
+      "tip":"git checkout <commit-ish> -- <file_path>"
+   },
+   {
+      "title":"Всегда выполнять перемещение вместо слияния при получении изменений из удаленного репозитория",
+      "tip":"git config --global pull.rebase true",
+      "alternatives":[
+         "#git < 1.7.9\ngit config --global branch.autosetuprebase always"
+      ]
+   },
+   {
+      "title":"Показать конфиг и все псевдонимы (alias)",
+      "tip":"git config --list"
+   },
+   {
+      "title":"Сделать git чувствительным к регистру",
+      "tip":"git config --global core.ignorecase false"
+   },
+   {
+      "title":"Изменить текстовый редактор",
+      "tip":"git config --global core.editor '$EDITOR'"
+   },
+   {
+      "title":"Включить автоматическое исправление опечаток",
+      "tip":"git config --global help.autocorrect 1"
+   },
+   {
+      "title":"Check if the change was a part of a release",
+      "tip":"git name-rev --name-only <SHA-1>"
+   },
+   {
+      "title":"Dry run (any command that supports dry-run flag should do)",
+      "tip":"git clean -fd --dry-run"
+   },
+   {
+      "title":"Отметить коммит как исправление к указанному коммиту",
+      "tip":"git commit --fixup <SHA-1>"
+   },
+   {
+      "title":"Squash fixup commits normal commits",
+      "tip":"git rebase -i --autosquash"
+   },
+   {
+      "title":"Skip staging area during commit",
+      "tip":"git commit --only <file_path>"
+   },
+   {
+      "title":"Интерактивное добавление файлов в индекс",
+      "tip":"git add -i"
+   },
+   {
+      "title":"Показать список игнорируемых файлов",
+      "tip":"git check-ignore *"
+   },
+   {
+      "title":"Статус игнорируемых файлов",
+      "tip":"git status --ignored"
+   },
+   {
+      "title":"Коммиты в ветке Branch1, которых нет в Branch2",
+      "tip":"git log Branch1 ^Branch2"
+   },
+   {
+      "title":"Reuse recorded resolution, record and reuse previous conflicts resolutions",
+      "tip":"git config --global rerere.enabled 1"
+   },
+   {
+      "title":"Открыть все конфликтующие файлы в редакторе",
+      "tip":"git diff --name-only | uniq | xargs $EDITOR"
+   },
+   {
+      "title":"Count unpacked number of objects and their disk consumption",
+      "tip":"git count-objects --human-readable"
+   },
+   {
+      "title":"Prune all unreachable objects from the object database",
+      "tip":"git gc --prune=now --aggressive"
+   },
+   {
+      "title":"Instantly browse your working repository in gitweb",
+      "tip":"git instaweb [--local] [--httpd=<httpd>] [--port=<port>] [--browser=<browser>]"
+   },
+   {
+      "title":"Показать GPG-сигнатуру в истории коммитов",
+      "tip":"git log --show-signature"
+   },
+   {
+      "title":"Удалить запись из глобального конфига",
+      "tip":"git config --global --unset <entry-name>"
+   },
+   {
+      "title":"Создать новую ветку без родительской ветки",
+      "tip":"git checkout --orphan <branch_name>"
+   },
+   {
+      "title":"Получить файл из другой ветки",
+      "tip":"git show <branch_name>:<file_name>"
+   },
+   {
+      "title":"List only the root and merge commits",
+      "tip":"git log --first-parent"
+   },
+   {
+      "title":"Изменить коммиты в интерактивном режиме",
+      "tip":"git rebase --interactive HEAD~2"
+   },
+   {
+      "title":"Показать все ветки, не слитые в master",
+      "tip":"git checkout master && git branch --no-merged"
+   },
+   {
+      "title":"Поиск коммита с багом при помощи бинарного поиска",
+      "tip":"git bisect start                    # Search start \ngit bisect bad                      # Set point to bad commit \ngit bisect good v2.6.13-rc2         # Set point to good commit|tag \ngit bisect bad                      # Say current state is bad \ngit bisect good                     # Say current state is good \ngit bisect reset                    # Finish search \n"
+   },
+   {
+      "title":"Сделать коммит, обойдя хуки pre-commit и commit-msg",
+      "tip":"git commit --no-verify"
+   },
+   {
+      "title":"Показать коммиты и изменения в них для определенного файла (даже если он был переименован)",
+      "tip":"git log --follow -p -- <file_path>"
+   },
+   {
+      "title":"Клонировать отдельную ветку",
+      "tip":"git clone -b <branch-name> --single-branch https://github.com/user/repo.git"
+   },
+   {
+      "title":"Создать новую ветку и переключиться на нее",
+      "tip":"git checkout -b <branch-name>",
+      "alternatives":[
+         "git branch <branch-name> && git checkout <branch-name>"
+      ]
+   },
+   {
+      "title":"Игнорировать изменения прав доступа на файлы при коммите",
+      "tip":"git config core.fileMode false"
+   },
+   {
+      "title":"Отключить цветной вывод Git",
+      "tip":"git config --global color.ui false"
+   },
+   {
+      "title":"Specific color settings",
+      "tip":"git config --global <specific command e.g branch, diff> <true, false or always>"
+   },
+   {
+      "title":"Показать все локальные ветки, отсортировав их по дате изменения",
+      "tip":"git for-each-ref --sort=-committerdate --format='%(refname:short)' refs/heads/"
+   },
+   {
+      "title":"Find lines matching the pattern (regex or string) in tracked files",
+      "tip":"git grep --heading --line-number 'foo bar'"
+   },
+   {
+      "title":"Склонировать репозиторий с указаным количеством коммитов",
+      "tip":"git clone https://github.com/user/repo.git --depth 1"
+   },
+   {
+      "title":"Search Commit log across all branches for given text",
+      "tip":"git log --all --grep='<given-text>'"
+   },
+   {
+      "title":"Get first commit in a branch (from master)",
+      "tip":"git log master..<branch-name> --oneline | tail -1"
+   },
+   {
+      "title":"Удалить добавленный файл из индекса",
+      "tip":"git reset HEAD <file-name>"
+   },
+   {
+      "title":"Отправить коммиты в удаленный репозиторий, перезаписав историю (force push)",
+      "tip":"git push -f <remote-name> <branch-name>"
+   },
+   {
+      "title":"Добавить удаленный репозиторий",
+      "tip":"git remote add <remote-nickname> <remote-url>"
+   },
+   {
+      "title":"Показывает автора, время и хеш-коммита последнего изменения для каждой строки файла",
+      "tip":"git blame <file-name>"
+   },
+   {
+      "title":"Показать историю коммитов, сгрупировав их по имени автора",
+      "tip":"git shortlog"
+   },
+   {
+      "title":"Forced push but still ensure you don't overwrite other's work",
+      "tip":"git push --force-with-lease <remote-name> <branch-name>"
+   },
+   {
+      "title":"Показать количество строк, которое добавил/удалил пользователь",
+      "tip":"git log --author='_Your_Name_Here_' --pretty=tformat: --numstat | gawk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf \"added lines: %s removed lines: %s total lines: %s\n\", add, subs, loc }' -",
+      "alternatives":[
+         "git log --author='_Your_Name_Here_' --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf \"added lines: %s, removed lines: %s, total lines: %s\n\", add, subs, loc }' - # on Mac OSX"
+      ]
+   },
+   {
+      "title":"Revert: Reverting an entire merge",
+      "tip":"git revert -m 1 <commit-ish>"
+   },
+   {
+      "title":"Количество коммитов в ветке",
+      "tip":"git rev-list --count <branch-name>"
+   },
+   {
+      "title":"Alias: git undo",
+      "tip":"git config --global alias.undo '!f() { git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; }; f'"
+   },
+   {
+      "title":"Добавить заметку",
+      "tip":"git notes add -m 'Note on the previous commit....'"
+   },
+   {
+      "title":"Показать все заметки (git notes)",
+      "tip":"git log --show-notes='*'"
+   },
+   {
+      "title":"Apply commit from another repository",
+      "tip":"git --git-dir=<source-dir>/.git format-patch -k -1 --stdout <SHA1> | git am -3 -k"
+   },
+   {
+      "title":"Specific fetch reference",
+      "tip":"git fetch origin master:refs/remotes/origin/mymaster"
+   },
+   {
+      "title":"Найти общего предка двух веток",
+      "tip":"diff -u <(git rev-list --first-parent BranchA) <(git rev-list --first-parent BranchB) | sed -ne 's/^ //p' | head -1"
+   },
+   {
+      "title":"Показать незапушенные коммиты",
+      "tip":"git log --branches --not --remotes",
+      "alternatives":[
+         "git log @{u}..",
+         "git cherry -v"
+      ]
+   },
+   {
+      "title":"Изменить (git config) локальный/глобальный конфиг git (git config)",
+      "tip":"git config [--global] --edit"
+   },
+   {
+      "title":"Показывает автора, время и хеш-коммита последнего изменения для указанного диапазона строк",
+      "tip":"git blame -L <start>,<end>"
+   },
+   {
+      "title":"Show a Git logical variable",
+      "tip":"git var -l | <variable>"
+   },
+   {
+      "title":"Preformatted patch file",
+      "tip":"git format-patch -M upstream..topic"
+   },
+   {
+      "title":"Показать название репозитория",
+      "tip":"git rev-parse --show-toplevel"
+   },
+   {
+      "title":"Показать логи за определенный период (от-до)",
+      "tip":"git log --since='FEB 1 2017' --until='FEB 14 2017'"
+   },
+   {
+      "title":"Показать историю коммитов, исключив коммиты указанного автора",
+      "tip":"git log --perl-regexp --author='^((?!excluded-author-regex).*)$'"
+   },
+   {
+      "title":"Generates a summary of pending changes",
+      "tip":"git request-pull v1.0 https://git.ko.xz/project master:for-linus"
+   },
+   {
+      "title":"List references in a remote repository",
+      "tip":"git ls-remote git://git.kernel.org/pub/scm/git/git.git"
+   },
+   {
+      "title":"Сделать резервную копию неотслеживаемых файлов",
+      "tip":"git ls-files --others -i --exclude-standard | xargs zip untracked.zip"
+   }
+]

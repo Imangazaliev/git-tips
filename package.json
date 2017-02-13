@@ -1,0 +1,38 @@
+{
+  "name": "tips",
+  "version": "1.0.0",
+  "description": "Collection of git tips",
+  "main": "index.js",
+  "private": "true",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "precommit": "npm run generate && git add README.md",
+    "update-readme": "echo 'Updating the readme…'; doxie --render < ./tips.json --inject into README.md && echo '…done!'",
+    "update-toc": "echo 'Updating the table of contents…'; doxie --render .doxie.render.toc.js < ./tips.json --append '\n' --inject into README.md as toc && echo '…done!'",
+    "generate": "npm run update-readme; npm run update-toc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Imangazaliev/git-tips"
+  },
+  "keywords": [
+    "npm",
+    "tips"
+  ],
+  "contributors": [
+    "hemanth"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Imangazaliev/git-tips/issues"
+  },
+  "homepage": "https://github.com/Imangazaliev/git-tips",
+  "devDependencies": {
+    "doxie": "^0.2.2",
+    "doxie.append": "^0.1.0",
+    "doxie.inject": "^0.1.1",
+    "doxie.output": "^0.3.0",
+    "doxie.render": "^0.3.0",
+    "husky": "^0.8.1"
+  }
+}
