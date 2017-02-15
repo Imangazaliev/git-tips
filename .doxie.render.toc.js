@@ -1,4 +1,8 @@
 slugify = function(text){
+  var text = text.replace(/[a-z]+/gi, function (str) {
+    return str.toLowerCase();
+  });
+
   return text.toString()
     .replace(/\s+/g, '-')           // Replace spaces with -
     .replace(/[^\wа-я\-]+/gi, '')    // Remove all non-word chars
