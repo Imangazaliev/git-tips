@@ -4,27 +4,31 @@ function escapeStr(str) {
       .replace(/\n/g, '\\n');
 }
 
-var render = function(data) {
-  var data = data.data;
-
+var renderItem = function(data) {
   var tips = [
     '## ' + data.title,
     '```sh',
     data.tip,
-    '```',
+    '```\n',
   ];
 
   if (Array.isArray(data.alternatives)) {
-    tips.push('\n__Alternatives:__');
+    tips.push('__Alternatives:__');
 
     data.alternatives.map(function(alternative){
-      tips = tips.concat(['```sh', alternative, '```', '\n'])
+      tips = tips.concat(['```sh', alternative, '```\n'])
     });
-  } else {
-    tips.push('\n');
   }
 
   return tips.join('\n');
 };
+
+function render(data){
+  var data = data.data;
+
+  var renderedItems = data.items.map(renderItem);
+
+  return renderedItems.join('\n');
+}
 
 module.exports = render;

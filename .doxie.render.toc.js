@@ -1,7 +1,7 @@
 slugify = function(text){
-  return text.toString().toLowerCase()
+  return text.toString()
     .replace(/\s+/g, '-')           // Replace spaces with -
-    .replace(/[^\wа-я\-]+/g, '')    // Remove all non-word chars
+    .replace(/[^\wа-я\-]+/gi, '')    // Remove all non-word chars
     .replace(/\-\-+/g, '-')         // Replace multiple - with single -
     .replace(/^-+/, '')             // Trim - from start of text
     .replace(/-+$/, '');            // Trim - from end of text
@@ -10,9 +10,13 @@ slugify = function(text){
 var render = function(data) {
   var data = data.data;
 
-  var out = '* [' + data.title + '](#' + slugify(data.title) + ')\n';
+  var output = `### ${data.title}\n\n`;
 
-  return out;
+  data.items.map(function (item) {
+    output += '- [' + item.title + '](#' + slugify(item.title) + ')\n';
+  });
+
+  return output + '\n';
 };
 
 module.exports = render;
