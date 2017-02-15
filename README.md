@@ -189,7 +189,7 @@
 
 <!-- @doxie.inject start -->
 <!-- Don’t remove or change the comment above – that can break automatic updates. -->
-## Создать новую ветку и переключиться на нее
+### Создать новую ветку и переключиться на нее
 ```sh
 git checkout -b <branch-name>
 ```
@@ -199,27 +199,27 @@ __Alternatives:__
 git branch <branch-name> && git checkout <branch-name>
 ```
 
-## Быстрое переключение на предыдущую ветку
+### Быстрое переключение на предыдущую ветку
 ```sh
 git checkout -
 ```
 
-## Список локальных и удаленных веток
+### Список локальных и удаленных веток
 ```sh
 git branch -a
 ```
 
-## Список веток в удаленном репозитории
+### Список веток в удаленном репозитории
 ```sh
 git branch -r
 ```
 
-## Показать все ветки (в том числе и удаленные ветки), а так же последний коммит в них
+### Показать все ветки (в том числе и удаленные ветки), а так же последний коммит в них
 ```sh
 git branch -vv
 ```
 
-## Переименовать ветку
+### Переименовать ветку
 ```sh
 git branch -m <new-branch-name>
 ```
@@ -229,12 +229,12 @@ __Alternatives:__
 git branch -m [<old-branch-name>] <new-branch-name>
 ```
 
-## Удалить локальную ветку
+### Удалить локальную ветку
 ```sh
 git branch -d <local_branchname>
 ```
 
-## Удалить ветку в удаленном репозитории
+### Удалить ветку в удаленном репозитории
 ```sh
 git push origin --delete <remote_branchname>
 ```
@@ -244,12 +244,12 @@ __Alternatives:__
 git push origin :<remote_branchname>
 ```
 
-## Показать список веток, которые уже слиты с веткой master
+### Показать список веток, которые уже слиты с веткой master
 ```sh
 git branch --merged master
 ```
 
-## Удалить ветки, которые уже слиты с master
+### Удалить ветки, которые уже слиты с master
 ```sh
 git branch --merged master | grep -v '^\*' | xargs -n 1 git branch -d
 ```
@@ -259,7 +259,7 @@ __Alternatives:__
 git branch --merged master | grep -v '^\*\|  master' | xargs -n 1 git branch -d # will not delete master if master is not checked out
 ```
 
-## Найти ветки, которые содержат коммит с указанным хешем
+### Найти ветки, которые содержат коммит с указанным хешем
 ```sh
 git branch -a --contains <commit-ish>
 ```
@@ -269,95 +269,95 @@ __Alternatives:__
 git branch --contains <commit-ish>
 ```
 
-## Track upstream branch
+### Track upstream branch
 ```sh
 git branch -u origin/mybranch
 ```
-## Изменить сообщение последнего коммита
+### Изменить сообщение последнего коммита
 ```sh
 git commit --amend
 ```
 
-## Изменить предыдущий коммит без изменения сообщения к коммиту
+### Изменить предыдущий коммит без изменения сообщения к коммиту
 ```sh
 git commit --amend --no-edit
 ```
 
-## Исправить имя автора последнего коммита
+### Исправить имя автора последнего коммита
 ```sh
 git commit --amend --no-edit --author='Author Name <email@address.com>'
 ```
 
-## Reset author, after author has been changed in the global config
+### Reset author, after author has been changed in the global config
 ```sh
 git commit --amend --reset-author --no-edit
 ```
 
-## Создать коммит только с указанными файлами
+### Создать коммит только с указанными файлами
 ```sh
 git commit --only <file_path>
 ```
 
-## Сделать коммит, обойдя хуки pre-commit и commit-msg
+### Сделать коммит, обойдя хуки pre-commit и commit-msg
 ```sh
 git commit --no-verify
 ```
 
-## Отметить коммит как исправление к указанному коммиту
+### Отметить коммит как исправление к указанному коммиту
 ```sh
 git commit --fixup <SHA-1>
 ```
-## Показать конфиг и все псевдонимы (alias)
+### Показать конфиг и все псевдонимы (alias)
 ```sh
 git config --list
 ```
 
-## Изменить локальный/глобальный конфиг git
+### Изменить локальный/глобальный конфиг git
 ```sh
 git config [--global] --edit
 ```
 
-## Изменить текстовый редактор
+### Изменить текстовый редактор
 ```sh
 git config --global core.editor '$EDITOR'
 ```
 
-## Игнорировать изменения прав доступа на файлы при коммите
+### Игнорировать изменения прав доступа на файлы при коммите
 ```sh
 git config core.fileMode false
 ```
 
-## Сделать git чувствительным к регистру
+### Сделать git чувствительным к регистру
 ```sh
 git config --global core.ignorecase false
 ```
 
-## Включить автоматическое исправление опечаток
+### Включить автоматическое исправление опечаток
 ```sh
 git config --global help.autocorrect 1
 ```
 
-## Отключить цветной вывод Git
+### Отключить цветной вывод Git
 ```sh
 git config --global color.ui false
 ```
 
-## Specific color settings
+### Specific color settings
 ```sh
 git config --global <specific command e.g branch, diff> <true, false or always>
 ```
 
-## Удалить запись из глобального конфига
+### Удалить запись из глобального конфига
 ```sh
 git config --global --unset <entry-name>
 ```
 
-## Reuse recorded resolution, record and reuse previous conflicts resolutions
+### Reuse recorded resolution, record and reuse previous conflicts resolutions
 ```sh
 git config --global rerere.enabled 1
 ```
 
-## Всегда выполнять перемещение вместо слияния при получении изменений из удаленного репозитория
+### Всегда выполнять перемещение вместо слияния при получении изменений из удаленного репозитория
 ```sh
 git config --global pull.rebase true
 ```
@@ -368,22 +368,22 @@ __Alternatives:__
 git config --global branch.autosetuprebase always
 ```
 
-## Псевдонимы (alias) для команд Git
+### Псевдонимы (alias) для команд Git
 ```sh
 git config --global alias.<handle> <command> 
 git config --global alias.st status
 ```
-## Показать изменения с момента последнего коммита
+### Показать изменения с момента последнего коммита
 ```sh
 git diff
 ```
 
-## Показать все изменения (для файлов которых нет в индексе и которые уже там)
+### Показать все изменения (для файлов которых нет в индексе и которые уже там)
 ```sh
 git diff HEAD
 ```
 
-## Изменения в файлах, которые находятся в индексе
+### Изменения в файлах, которые находятся в индексе
 ```sh
 git diff --cached
 ```
@@ -393,52 +393,52 @@ __Alternatives:__
 git diff --staged
 ```
 
-## Показывать изменения в одну строку
+### Показывать изменения в одну строку
 ```sh
 git diff --word-diff
 ```
 
-## Показать список конфликтующих файлов
+### Показать список конфликтующих файлов
 ```sh
 git diff --name-only --diff-filter=U
 ```
 
-## Открыть все конфликтующие файлы в редакторе
+### Открыть все конфликтующие файлы в редакторе
 ```sh
 git diff --name-only | uniq | xargs $EDITOR
 ```
 
-## Список всех файлов, которые были изменены в коммите
+### Список всех файлов, которые были изменены в коммите
 ```sh
 git diff-tree --no-commit-id --name-only -r <commit-ish>
 ```
-## Показать логи за определенный период (от-до)
+### Показать логи за определенный период (от-до)
 ```sh
 git log --since='FEB 1 2017' --until='FEB 14 2017'
 ```
 
-## Показать историю коммитов, сгрупировав их по имени автора
+### Показать историю коммитов, сгрупировав их по имени автора
 ```sh
 git shortlog
 ```
 
-## Показать историю коммитов, исключив коммиты указанного автора
+### Показать историю коммитов, исключив коммиты указанного автора
 ```sh
 git log --perl-regexp --author='^((?!excluded-author-regex).*)
 
 ```
 
-## Показать коммиты и изменения в них для определенного файла (даже если он был переименован)
+### Показать коммиты и изменения в них для определенного файла (даже если он был переименован)
 ```sh
 git log --follow -p -- <file_path>
 ```
 
-## List only the root and merge commits
+### List only the root and merge commits
 ```sh
 git log --first-parent
 ```
 
-## Показать незапушенные коммиты
+### Показать незапушенные коммиты
 ```sh
 git log --branches --not --remotes
 ```
@@ -452,22 +452,22 @@ git log @{u}..
 git cherry -v
 ```
 
-## Показать все коммиты с момента отделения от ветки master
+### Показать все коммиты с момента отделения от ветки master
 ```sh
 git log --no-merges --stat --reverse master..
 ```
 
-## Коммиты в ветке Branch1, которых нет в Branch2
+### Коммиты в ветке Branch1, которых нет в Branch2
 ```sh
 git log Branch1 ^Branch2
 ```
 
-## Показать GPG-сигнатуру в истории коммитов
+### Показать GPG-сигнатуру в истории коммитов
 ```sh
 git log --show-signature
 ```
 
-## Показать количество строк, которое добавил/удалил пользователь
+### Показать количество строк, которое добавил/удалил пользователь
 ```sh
 git log --author='_Your_Name_Here_' --pretty=tformat: --numstat | gawk '{ add += <!-- @doxie.inject start -->; subs += <!-- @doxie.inject end -->; loc += <!-- @doxie.inject start --> - <!-- @doxie.inject end --> } END { printf "added lines: %s removed lines: %s total lines: %s
 ", add, subs, loc }' -
@@ -479,17 +479,17 @@ git log --author='_Your_Name_Here_' --pretty=tformat: --numstat | awk '{ add += 
 ", add, subs, loc }' - # on Mac OSX
 ```
 
-## Search Commit log across all branches for given text
+### Search Commit log across all branches for given text
 ```sh
 git log --all --grep='<given-text>'
 ```
 
-## Показать все заметки (git notes)
+### Показать все заметки (git notes)
 ```sh
 git log --show-notes='*'
 ```
 
-## Показать дерево тегов (версий)
+### Показать дерево тегов (версий)
 ```sh
 git log --pretty=oneline --graph --decorate --all
 ```
@@ -499,11 +499,11 @@ __Alternatives:__
 gitk --all
 ```
 
-## Get first commit in a branch (from master)
+### Get first commit in a branch (from master)
 ```sh
 git log master..<branch-name> --oneline | tail -1
 ```
-## Спрятать текущие изменения для отслеживаемых файлов
+### Спрятать текущие изменения для отслеживаемых файлов
 ```sh
 git stash
 ```
@@ -513,7 +513,7 @@ __Alternatives:__
 git stash save
 ```
 
-## Спрятать текущие изменения, включая неотслеживаемые файлы
+### Спрятать текущие изменения, включая неотслеживаемые файлы
 ```sh
 git stash save -u
 ```
@@ -523,12 +523,12 @@ __Alternatives:__
 git stash save --include-untracked
 ```
 
-## Показать список спрятанных изменений
+### Показать список спрятанных изменений
 ```sh
 git stash list
 ```
 
-## Применить последние спрятанные изменения и удалить их из стека
+### Применить последние спрятанные изменения и удалить их из стека
 ```sh
 git stash pop
 ```
@@ -538,12 +538,12 @@ __Alternatives:__
 git stash apply stash@{0} && git stash drop stash@{0}
 ```
 
-## Применить последние спрятанные изменения без удаления их из стека
+### Применить последние спрятанные изменения без удаления их из стека
 ```sh
 git stash apply <stash@{n}>
 ```
 
-## Очистить stash
+### Очистить stash
 ```sh
 git stash clear
 ```
@@ -552,51 +552,51 @@ __Alternatives:__
 ```sh
 git stash drop <stash@{n}>
 ```
-## Удалить тег в локальном репозитории
+### Удалить тег в локальном репозитории
 ```sh
 git tag -d <tag-name>
 ```
 
-## Удалить тег в удаленном репозитории
+### Удалить тег в удаленном репозитории
 ```sh
 git push origin :refs/tags/<tag-name>
 ```
-## Everyday Git in twenty commands or so
+### Everyday Git in twenty commands or so
 ```sh
 git help everyday
 ```
 
-## Show helpful guides that come with Git
+### Show helpful guides that come with Git
 ```sh
 git help -g
 ```
 
-## Клонировать отдельную ветку
+### Клонировать отдельную ветку
 ```sh
 git clone -b <branch-name> --single-branch https://github.com/user/repo.git
 ```
 
-## Клонировать репозиторий с указаным количеством коммитов
+### Клонировать репозиторий с указаным количеством коммитов
 ```sh
 git clone https://github.com/user/repo.git --depth 1
 ```
 
-## Импортировать пакет в репозиторий
+### Импортировать пакет в репозиторий
 ```sh
 git clone repo.bundle <repo-dir> -b <branch-name>
 ```
 
-## Alias: git undo
+### Alias: git undo
 ```sh
 git config --global alias.undo '!f() { git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; }; f'
 ```
 
-## Получить данные из удаленного репозитория и сбросить состояние текущей ветки к ним
+### Получить данные из удаленного репозитория и сбросить состояние текущей ветки к ним
 ```sh
 git fetch --all && git reset --hard origin/master
 ```
 
-## Prunes references to remote branches that have been deleted in the remote
+### Prunes references to remote branches that have been deleted in the remote
 ```sh
 git fetch -p
 ```
@@ -606,7 +606,7 @@ __Alternatives:__
 git remote prune origin
 ```
 
-## Загрузить пулл-реквест в текущую ветку по ID
+### Загрузить пулл-реквест в текущую ветку по ID
 ```sh
 git fetch origin pull/<id>/head:<branch-name>
 ```
@@ -616,52 +616,52 @@ __Alternatives:__
 git pull origin pull/<id>/head:<branch-name>
 ```
 
-## Specific fetch reference
+### Specific fetch reference
 ```sh
 git fetch origin master:refs/remotes/origin/mymaster
 ```
 
-## List of all files till a commit
+### List of all files till a commit
 ```sh
 git ls-tree --name-only -r <commit-ish>
 ```
 
-## Git reset first commit
+### Git reset first commit
 ```sh
 git update-ref -d HEAD
 ```
 
-## Показать самый последний тег на текущей ветке
+### Показать самый последний тег на текущей ветке
 ```sh
 git describe --tags --abbrev=0
 ```
 
-## Revert: отменить коммит с помощью нового коммита
+### Revert: отменить коммит с помощью нового коммита
 ```sh
 git revert <commit-ish>
 ```
 
-## Revert: отменить слияние (merge) с помощью нового коммита
+### Revert: отменить слияние (merge) с помощью нового коммита
 ```sh
 git revert -m 1 <commit-ish>
 ```
 
-## Reset: Discard commits, advised for private branch
+### Reset: Discard commits, advised for private branch
 ```sh
 git reset <commit-ish>
 ```
 
-## Удалить файл из индекса
+### Удалить файл из индекса
 ```sh
 git reset HEAD <file-name>
 ```
 
-## Показать историю коммитов только для текущей ветки
+### Показать историю коммитов только для текущей ветки
 ```sh
 git cherry -v master
 ```
 
-## Показать список удаленных репозиториев
+### Показать список удаленных репозиториев
 ```sh
 git remote
 ```
@@ -671,32 +671,32 @@ __Alternatives:__
 git remote show
 ```
 
-## Изменить URL удаленного репозитория
+### Изменить URL удаленного репозитория
 ```sh
 git remote set-url origin <URL>
 ```
 
-## List references in a remote repository
+### List references in a remote repository
 ```sh
 git ls-remote git://git.kernel.org/pub/scm/git/git.git
 ```
 
-## Добавить удаленный репозиторий
+### Добавить удаленный репозиторий
 ```sh
 git remote add <remote-nickname> <remote-url>
 ```
 
-## Добавить в индекс часть файла
+### Добавить в индекс часть файла
 ```sh
 git add -p
 ```
 
-## Автокомплит Git-команд в bash
+### Автокомплит Git-команд в bash
 ```sh
 curl http://git.io/vfhol > ~/.git-completion.bash && echo '[ -f ~/.git-completion.bash ] && . ~/.git-completion.bash' >> ~/.bashrc
 ```
 
-## Изменения за указанный промежуток времени
+### Изменения за указанный промежуток времени
 ```sh
 git log --no-merges --raw --since='2 weeks ago'
 ```
@@ -706,12 +706,12 @@ __Alternatives:__
 git whatchanged --since='2 weeks ago'
 ```
 
-## Перенести коммиты из одной ветки в другую с помощью cherry-pick
+### Перенести коммиты из одной ветки в другую с помощью cherry-pick
 ```sh
 git checkout <branch-name> && git cherry-pick <commit-ish>
 ```
 
-## Извлечь отдельный файл из stash
+### Извлечь отдельный файл из stash
 ```sh
 git checkout <stash@{n}> -- <file_path>
 ```
@@ -721,47 +721,47 @@ __Alternatives:__
 git checkout stash@{0} -- <file_path>
 ```
 
-## Undo local changes with the last content in head
+### Undo local changes with the last content in head
 ```sh
 git checkout -- <file_name>
 ```
 
-## Создать новую ветку без родительской ветки
+### Создать новую ветку без родительской ветки
 ```sh
 git checkout --orphan <branch_name>
 ```
 
-## Показать все ветки, не слитые в master
+### Показать все ветки, не слитые в master
 ```sh
 git checkout master && git branch --no-merged
 ```
 
-## Показать все отслеживаемы файлы
+### Показать все отслеживаемы файлы
 ```sh
 git ls-files -t
 ```
 
-## Показать все неотслеживаемые файлы
+### Показать все неотслеживаемые файлы
 ```sh
 git ls-files --others
 ```
 
-## Показать все игнорируемые файлы
+### Показать все игнорируемые файлы
 ```sh
 git ls-files --others -i --exclude-standard
 ```
 
-## Create new working tree from a repository (git 2.5)
+### Create new working tree from a repository (git 2.5)
 ```sh
 git worktree add -b <branch-name> <path> <start-point>
 ```
 
-## Create new working tree from HEAD state
+### Create new working tree from HEAD state
 ```sh
 git worktree add --detach <path> HEAD
 ```
 
-## Не отслеживать файлы (без удаления)
+### Не отслеживать файлы (без удаления)
 ```sh
 git rm --cached <file_path>
 ```
@@ -771,17 +771,17 @@ __Alternatives:__
 git rm --cached -r <directory_path>
 ```
 
-## Before deleting untracked files/directory, do a dry run to get the list of these files/directories
+### Before deleting untracked files/directory, do a dry run to get the list of these files/directories
 ```sh
 git clean -n
 ```
 
-## Принудительно удалить неотслеживаемые файлы
+### Принудительно удалить неотслеживаемые файлы
 ```sh
 git clean -f
 ```
 
-## Принудительно удалить неотслеживаемую директорию
+### Принудительно удалить неотслеживаемую директорию
 ```sh
 git clean -f -d
 ```
@@ -791,7 +791,7 @@ __Alternatives:__
 git clean -df
 ```
 
-## Обновить все субмодули
+### Обновить все субмодули
 ```sh
 git submodule foreach git pull
 ```
@@ -805,7 +805,7 @@ git submodule update --init --recursive
 git submodule update --remote
 ```
 
-## Показать коммиты текущей ветки, которые будут слиты в мастер
+### Показать коммиты текущей ветки, которые будут слиты в мастер
 ```sh
 git cherry -v master
 ```
@@ -815,17 +815,17 @@ __Alternatives:__
 git cherry -v master <branch-to-be-merged>
 ```
 
-## Переместить ветку 'feature' на 'master' и слить ее в мастер
+### Переместить ветку 'feature' на 'master' и слить ее в мастер
 ```sh
 git rebase master feature && git checkout master && git merge -
 ```
 
-## Архивировать ветку master
+### Архивировать ветку master
 ```sh
 git archive master --format=zip --output=master.zip
 ```
 
-## Retrieve the commit hash of the initial revision
+### Retrieve the commit hash of the initial revision
 ```sh
  git rev-list --reverse HEAD | head -1
 ```
@@ -843,127 +843,127 @@ git log --pretty=oneline | tail -1 | cut -c 1-40
 git log --pretty=oneline --reverse | head -1 | cut -c 1-40
 ```
 
-## Deploying git tracked subfolder to gh-pages
+### Deploying git tracked subfolder to gh-pages
 ```sh
 git subtree push --prefix subfolder_name origin gh-pages
 ```
 
-## Adding a project to repo using subtree
+### Adding a project to repo using subtree
 ```sh
 git subtree add --prefix=<directory_name>/<project_name> --squash git@github.com:<username>/<project_name>.git master
 ```
 
-## Get latest changes in your repo for a linked project using subtree
+### Get latest changes in your repo for a linked project using subtree
 ```sh
 git subtree pull --prefix=<directory_name>/<project_name> --squash git@github.com:<username>/<project_name>.git master
 ```
 
-## Эспортировать ветку в файл (создать пакет)
+### Эспортировать ветку в файл (создать пакет)
 ```sh
 git bundle create <file> <branch-name>
 ```
 
-## Показать название текущей ветки
+### Показать название текущей ветки
 ```sh
 git rev-parse --abbrev-ref HEAD
 ```
 
-## Ignore one file on commit (e.g. Changelog)
+### Ignore one file on commit (e.g. Changelog)
 ```sh
 git update-index --assume-unchanged Changelog; git commit -a; git update-index --no-assume-unchanged Changelog
 ```
 
-## Спрятать изменения перед выполнением перемещения
+### Спрятать изменения перед выполнением перемещения
 ```sh
 git rebase --autostash
 ```
 
-## Show changes using common diff tools
+### Show changes using common diff tools
 ```sh
 git difftool -t <commit1> <commit2> <path>
 ```
 
-## Don’t consider changes for tracked file
+### Don’t consider changes for tracked file
 ```sh
 git update-index --assume-unchanged <file_name>
 ```
 
-## Undo assume-unchanged
+### Undo assume-unchanged
 ```sh
 git update-index --no-assume-unchanged <file_name>
 ```
 
-## Удалить все файлы, которые находятся в `.gitignore`
+### Удалить все файлы, которые находятся в `.gitignore`
 ```sh
 git clean -X -f
 ```
 
-## Восстановить удаленный файл
+### Восстановить удаленный файл
 ```sh
 git checkout <deleting_commit>^ -- <file_path>
 ```
 
-## Restore file to a specific commit-hash
+### Restore file to a specific commit-hash
 ```sh
 git checkout <commit-ish> -- <file_path>
 ```
 
-## Check if the change was a part of a release
+### Check if the change was a part of a release
 ```sh
 git name-rev --name-only <SHA-1>
 ```
 
-## Dry run (any command that supports dry-run flag should do)
+### Dry run (any command that supports dry-run flag should do)
 ```sh
 git clean -fd --dry-run
 ```
 
-## Squash fixup commits normal commits
+### Squash fixup commits normal commits
 ```sh
 git rebase -i --autosquash
 ```
 
-## Интерактивное добавление файлов в индекс
+### Интерактивное добавление файлов в индекс
 ```sh
 git add -i
 ```
 
-## Показать список игнорируемых файлов
+### Показать список игнорируемых файлов
 ```sh
 git check-ignore *
 ```
 
-## Статус игнорируемых файлов
+### Статус игнорируемых файлов
 ```sh
 git status --ignored
 ```
 
-## Count unpacked number of objects and their disk consumption
+### Count unpacked number of objects and their disk consumption
 ```sh
 git count-objects --human-readable
 ```
 
-## Prune all unreachable objects from the object database
+### Prune all unreachable objects from the object database
 ```sh
 git gc --prune=now --aggressive
 ```
 
-## Instantly browse your working repository in gitweb
+### Instantly browse your working repository in gitweb
 ```sh
 git instaweb [--local] [--httpd=<httpd>] [--port=<port>] [--browser=<browser>]
 ```
 
-## Получить файл из другой ветки
+### Получить файл из другой ветки
 ```sh
 git show <branch_name>:<file_name>
 ```
 
-## Изменить коммиты в интерактивном режиме
+### Изменить коммиты в интерактивном режиме
 ```sh
 git rebase --interactive HEAD~2
 ```
 
-## Поиск коммита с багом при помощи бинарного поиска
+### Поиск коммита с багом при помощи бинарного поиска
 ```sh
 git bisect start                    # Search start 
 git bisect bad                      # Set point to bad commit 
@@ -974,77 +974,77 @@ git bisect reset                    # Finish search
 
 ```
 
-## Показать все локальные ветки, отсортировав их по дате изменения
+### Показать все локальные ветки, отсортировав их по дате изменения
 ```sh
 git for-each-ref --sort=-committerdate --format='%(refname:short)' refs/heads/
 ```
 
-## Find lines matching the pattern (regex or string) in tracked files
+### Find lines matching the pattern (regex or string) in tracked files
 ```sh
 git grep --heading --line-number 'foo bar'
 ```
 
-## Отправить коммиты в удаленный репозиторий, перезаписав историю (force push)
+### Отправить коммиты в удаленный репозиторий, перезаписав историю (force push)
 ```sh
 git push -f <remote-name> <branch-name>
 ```
 
-## Forced push but still ensure you don't overwrite other's work
+### Forced push but still ensure you don't overwrite other's work
 ```sh
 git push --force-with-lease <remote-name> <branch-name>
 ```
 
-## Количество коммитов в ветке
+### Количество коммитов в ветке
 ```sh
 git rev-list --count <branch-name>
 ```
 
-## Добавить заметку
+### Добавить заметку
 ```sh
 git notes add -m 'Note on the previous commit....'
 ```
 
-## Apply commit from another repository
+### Apply commit from another repository
 ```sh
 git --git-dir=<source-dir>/.git format-patch -k -1 --stdout <SHA1> | git am -3 -k
 ```
 
-## Найти общего предка двух веток
+### Найти общего предка двух веток
 ```sh
 diff -u <(git rev-list --first-parent BranchA) <(git rev-list --first-parent BranchB) | sed -ne 's/^ //p' | head -1
 ```
 
-## Показывает автора, время и хеш-коммита последнего изменения для каждой строки файла
+### Показывает автора, время и хеш-коммита последнего изменения для каждой строки файла
 ```sh
 git blame <file-name>
 ```
 
-## Показывает автора, время и хеш-коммита последнего изменения для указанного диапазона строк
+### Показывает автора, время и хеш-коммита последнего изменения для указанного диапазона строк
 ```sh
 git blame -L <start>,<end>
 ```
 
-## Show a Git logical variable
+### Show a Git logical variable
 ```sh
 git var -l | <variable>
 ```
 
-## Preformatted patch file
+### Preformatted patch file
 ```sh
 git format-patch -M upstream..topic
 ```
 
-## Показать название репозитория
+### Показать название репозитория
 ```sh
 git rev-parse --show-toplevel
 ```
 
-## Generates a summary of pending changes
+### Generates a summary of pending changes
 ```sh
 git request-pull v1.0 https://git.ko.xz/project master:for-linus
 ```
 
-## Сделать резервную копию неотслеживаемых файлов
+### Сделать резервную копию неотслеживаемых файлов
 ```sh
 git ls-files --others -i --exclude-standard | xargs zip untracked.zip
 ```

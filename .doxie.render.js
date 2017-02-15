@@ -6,7 +6,7 @@ function escapeStr(str) {
 
 var renderItem = function(data) {
   var tips = [
-    '## ' + data.title,
+    '### ' + data.title,
     '```sh',
     data.tip,
     '```\n',
