@@ -10,6 +10,10 @@
             ]
          },
          {
+            "title":"Создать новую ветку без родительской ветки",
+            "tip":"git checkout --orphan <branch_name>"
+         },
+         {
             "title":"Быстрое переключение на предыдущую ветку",
             "tip":"git checkout -"
          },
@@ -44,8 +48,20 @@
             ]
          },
          {
+            "title":"Показать название текущей ветки",
+            "tip":"git rev-parse --abbrev-ref HEAD"
+         },
+         {
+            "title":"Показать все ветки, не слитые в master",
+            "tip":"git checkout master && git branch --no-merged"
+         },
+         {
             "title":"Показать список веток, которые уже слиты с веткой master",
             "tip":"git branch --merged master"
+         },
+         {
+            "title":"Переместить ветку feature на master и слить ее в мастер",
+            "tip":"git rebase master feature && git checkout master && git merge -"
          },
          {
             "title":"Удалить ветки, которые уже слиты с master",
@@ -200,6 +216,13 @@
             "tip":"git log --since='FEB 1 2017' --until='FEB 14 2017'"
          },
          {
+            "title":"Показать коммиты за указанный промежуток времени",
+            "tip":"git log --no-merges --raw --since='2 weeks ago'",
+            "alternatives":[
+               "git whatchanged --since='2 weeks ago'"
+            ]
+         },
+         {
             "title":"Показать историю коммитов, сгрупировав их по имени автора",
             "tip":"git shortlog"
          },
@@ -228,8 +251,8 @@
             "tip":"git log --no-merges --stat --reverse master.."
          },
          {
-            "title":"Коммиты в ветке Branch1, которых нет в Branch2",
-            "tip":"git log Branch1 ^Branch2"
+            "title":"Коммиты в ветке branch-1, которых нет в branch-2",
+            "tip":"git log branch-1 ^branch-2"
          },
          {
             "title":"Показать GPG-сигнатуру в истории коммитов",
@@ -243,7 +266,7 @@
             ]
          },
          {
-            "title":"Search Commit log across all branches for given text",
+            "title":"Поиск в истории коммитов по регулярному выражению",
             "tip":"git log --all --grep='<given-text>'"
          },
          {
@@ -296,6 +319,13 @@
             "tip":"git stash apply <stash@{n}>"
          },
          {
+            "title":"Извлечь отдельный файл из stash",
+            "tip":"git checkout <stash@{n}> -- <file_path>",
+            "alternatives":[
+               "git checkout stash@{0} -- <file_path>"
+            ]
+         },
+         {
             "title":"Очистить stash",
             "tip":"git stash clear",
             "alternatives":[
@@ -320,6 +350,10 @@
    {
       "title": "Разное",
       "items": [
+         {
+            "title":"Интерактивное добавление файлов в индекс",
+            "tip":"git add -i"
+         },
          {
             "title":"Everyday Git in twenty commands or so",
             "tip":"git help everyday"
@@ -387,7 +421,7 @@
             "tip":"git revert -m 1 <commit-ish>"
          },
          {
-            "title":"Reset: Discard commits, advised for private branch",
+            "title":"Reset: Отменить коммиты (сброс к указанному коммиту)",
             "tip":"git reset <commit-ish>"
          },
          {
@@ -426,34 +460,12 @@
             "tip":"curl http://git.io/vfhol > ~/.git-completion.bash && echo '[ -f ~/.git-completion.bash ] && . ~/.git-completion.bash' >> ~/.bashrc"
          },
          {
-            "title":"Изменения за указанный промежуток времени",
-            "tip":"git log --no-merges --raw --since='2 weeks ago'",
-            "alternatives":[
-               "git whatchanged --since='2 weeks ago'"
-            ]
-         },
-         {
             "title":"Перенести коммиты из одной ветки в другую с помощью cherry-pick",
             "tip":"git checkout <branch-name> && git cherry-pick <commit-ish>"
          },
          {
-            "title":"Извлечь отдельный файл из stash",
-            "tip":"git checkout <stash@{n}> -- <file_path>",
-            "alternatives":[
-               "git checkout stash@{0} -- <file_path>"
-            ]
-         },
-         {
             "title":"Undo local changes with the last content in head",
             "tip":"git checkout -- <file_name>"
-         },
-         {
-            "title":"Создать новую ветку без родительской ветки",
-            "tip":"git checkout --orphan <branch_name>"
-         },
-         {
-            "title":"Показать все ветки, не слитые в master",
-            "tip":"git checkout master && git branch --no-merged"
          },
          {
             "title":"Показать все отслеживаемы файлы",
@@ -513,14 +525,6 @@
             ]
          },
          {
-            "title":"Переместить ветку 'feature' на 'master' и слить ее в мастер",
-            "tip":"git rebase master feature && git checkout master && git merge -"
-         },
-         {
-            "title":"Архивировать ветку master",
-            "tip":"git archive master --format=zip --output=master.zip"
-         },
-         {
             "title":"Retrieve the commit hash of the initial revision",
             "tip":" git rev-list --reverse HEAD | head -1",
             "alternatives":[
@@ -543,12 +547,12 @@
             "tip":"git subtree pull --prefix=<directory_name>/<project_name> --squash git@github.com:<username>/<project_name>.git master"
          },
          {
-            "title":"Эспортировать ветку в файл (создать пакет)",
+            "title":"Экспортировать ветку в файл (создать пакет)",
             "tip":"git bundle create <file> <branch-name>"
          },
          {
-            "title":"Показать название текущей ветки",
-            "tip":"git rev-parse --abbrev-ref HEAD"
+            "title":"Архивировать ветку master",
+            "tip":"git archive master --format=zip --output=master.zip"
          },
          {
             "title":"Ignore one file on commit (e.g. Changelog)",
@@ -593,10 +597,6 @@
          {
             "title":"Squash fixup commits normal commits",
             "tip":"git rebase -i --autosquash"
-         },
-         {
-            "title":"Интерактивное добавление файлов в индекс",
-            "tip":"git add -i"
          },
          {
             "title":"Показать список игнорируемых файлов",
