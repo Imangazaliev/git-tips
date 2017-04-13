@@ -287,6 +287,16 @@
       ]
    },
    {
+        "title": "Merge",
+        "items": [
+            {
+                "title": "Слить ветку feature с master, объединив все коммиты ветки feature в один",
+                "description": "При этом коммит слияния не будет создан, вам нужно будет сделать его вручную.",
+                "tip": "git merge feature --squash"
+            }
+        ]
+   },
+   {
       "title": "Stash",
       "items": [
          {
