@@ -1,4 +1,4 @@
-slugify = function(text){
+slugify = function(text) {
   var text = text.replace(/[a-z]+/gi, function (str) {
     return str.toLowerCase();
   });

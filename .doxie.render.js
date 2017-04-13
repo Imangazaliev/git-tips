@@ -1,34 +1,44 @@
 function escapeStr(str) {
   return str
-      .replace(/\"/g, '\\"')
-      .replace(/\n/g, '\\n');
+    .replace(/\"/g, '\\"')
+    .replace(/\n/g, '\\n');
 }
 
 var renderItem = function(data) {
-  var tips = [
+  var lines = [
     '### ' + data.title,
-    '```sh',
-    data.tip,
-    '```\n',
   ];
 
+  if (data.description !== undefined) {
+    lines.push(data.description);
+  }
+
+  lines = lines.concat(['```sh',
+    data.tip,
+    '```\n',
+  ]);
+
   if (Array.isArray(data.alternatives)) {
-    tips.push('__Alternatives:__');
+    lines.push('__Alternatives:__');
 
     data.alternatives.map(function(alternative){
-      tips = tips.concat(['```sh', alternative, '```\n'])
+      lines = lines.concat(['```sh', alternative, '```\n'])
     });
   }
 
-  return tips.join('\n');
+  return lines.join('\n');
 };
 
 function render(data){
   var data = data.data;
 
-  var renderedItems = data.items.map(renderItem);
+  var lines = [
+    `\n## ${data.title}\n`,
+  ];
 
-  return renderedItems.join('\n');
+  lines = lines.concat(data.items.map(renderItem));
+
+  return lines.join('\n');
 }
 
 module.exports = render;

@@ -86,6 +86,10 @@
 - [Показать дерево тегов (версий)](#Показать-дерево-тегов-версий)
 - [Get first commit in a branch (from master)](#get-first-commit-in-a-branch-from-master)
 
+### Merge
+
+- [Слить ветку feature с master, объединив все коммиты ветки feature в один](#Слить-ветку-feature-с-master-объединив-все-коммиты-ветки-feature-в-один)
+
 ### Stash
 
 - [Спрятать текущие изменения для отслеживаемых файлов](#Спрятать-текущие-изменения-для-отслеживаемых-файлов)
@@ -189,6 +193,9 @@
 
 <!-- @doxie.inject start -->
 <!-- Don’t remove or change the comment above – that can break automatic updates. -->
+
+## Branch
+
 ### Создать новую ветку и переключиться на нее
 ```sh
 git checkout -b <branch-name>
@@ -293,6 +300,9 @@ git branch --contains <commit-ish>
 ```sh
 git branch -u origin/mybranch
 ```
+
+## Commit
+
 ### Изменить сообщение последнего коммита
 ```sh
 git commit --amend
@@ -327,6 +337,9 @@ git commit --no-verify
 ```sh
 git commit --fixup <SHA-1>
 ```
+
+## Config
+
 ### Показать конфиг и все псевдонимы (alias)
 ```sh
 git config --list
@@ -393,6 +406,9 @@ git config --global branch.autosetuprebase always
 git config --global alias.<handle> <command> 
 git config --global alias.st status
 ```
+
+## Diff
+
 ### Показать изменения с момента последнего коммита
 ```sh
 git diff
@@ -432,6 +448,9 @@ git diff --name-only | uniq | xargs $EDITOR
 ```sh
 git diff-tree --no-commit-id --name-only -r <commit-ish>
 ```
+
+## Log
+
 ### Показать логи за определенный период (от-до)
 ```sh
 git log --since='FEB 1 2017' --until='FEB 14 2017'
@@ -533,6 +552,17 @@ gitk --all
 ```sh
 git log master..<branch-name> --oneline | tail -1
 ```
+
+## Merge
+
+### Слить ветку feature с master, объединив все коммиты ветки feature в один
+При этом коммит слияния не будет создан, вам нужно будет сделать его вручную.
+```sh
+git merge feature --squash
+```
+
+## Stash
+
 ### Спрятать текущие изменения для отслеживаемых файлов
 ```sh
 git stash
@@ -592,6 +622,9 @@ __Alternatives:__
 ```sh
 git stash drop <stash@{n}>
 ```
+
+## Tags
+
 ### Удалить тег в локальном репозитории
 ```sh
 git tag -d <tag-name>
@@ -601,6 +634,9 @@ git tag -d <tag-name>
 ```sh
 git push origin :refs/tags/<tag-name>
 ```
+
+## Разное
+
 ### Интерактивное добавление файлов в индекс
 ```sh
 git add -i
