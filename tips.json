@@ -11,7 +11,7 @@
          },
          {
             "title": "Создать новую ветку без родительской ветки",
-            "tip": "git checkout --orphan <branch_name>"
+            "tip": "git checkout --orphan <branch-name>"
          },
          {
             "title": "Быстрое переключение на предыдущую ветку",
@@ -38,13 +38,13 @@
          },
          {
             "title": "Удалить локальную ветку",
-            "tip": "git branch -d <local_branchname>"
+            "tip": "git branch -d <local-branch-name>"
          },
          {
             "title": "Удалить ветку в удаленном репозитории",
-            "tip": "git push origin --delete <remote_branchname>",
+            "tip": "git push origin --delete <remote-branch-name>",
             "alternatives": [
-               "git push origin :<remote_branchname>"
+               "git push origin :<remote-branch-name>"
             ]
          },
          {
@@ -260,9 +260,9 @@
          },
          {
             "title": "Показать количество строк, которое добавил/удалил пользователь",
-            "tip": "git log --author='_Your_Name_Here_' --pretty=tformat: --numstat | gawk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf \"added lines: %s removed lines: %s total lines: %s\n\", add, subs, loc }' -",
+            "tip": "git log --author='Your Name Here' --pretty=tformat: --numstat | gawk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf \"added lines: %s removed lines: %s total lines: %s\n\", add, subs, loc }' -",
             "alternatives": [
-               "git log --author='_Your_Name_Here_' --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf \"added lines: %s, removed lines: %s, total lines: %s\n\", add, subs, loc }' - # on Mac OSX"
+               "git log --author='Your Name Here' --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf \"added lines: %s, removed lines: %s, total lines: %s\n\", add, subs, loc }' - # on Mac OSX"
             ]
          },
          {

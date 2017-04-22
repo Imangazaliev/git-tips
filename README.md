@@ -208,7 +208,7 @@ git branch <branch-name> && git checkout <branch-name>
 
 ### Создать новую ветку без родительской ветки
 ```sh
-git checkout --orphan <branch_name>
+git checkout --orphan <branch-name>
 ```
 
 ### Быстрое переключение на предыдущую ветку
@@ -243,17 +243,17 @@ git branch -m [<old-branch-name>] <new-branch-name>
 
 ### Удалить локальную ветку
 ```sh
-git branch -d <local_branchname>
+git branch -d <local-branch-name>
 ```
 
 ### Удалить ветку в удаленном репозитории
 ```sh
-git push origin --delete <remote_branchname>
+git push origin --delete <remote-branch-name>
 ```
 
 __Alternatives:__
 ```sh
-git push origin :<remote_branchname>
+git push origin :<remote-branch-name>
 ```
 
 ### Показать название текущей ветки
@@ -518,13 +518,13 @@ git log --show-signature
 
 ### Показать количество строк, которое добавил/удалил пользователь
 ```sh
-git log --author='_Your_Name_Here_' --pretty=tformat: --numstat | gawk '{ add += <!-- @doxie.inject start -->; subs += <!-- @doxie.inject end -->; loc += <!-- @doxie.inject start --> - <!-- @doxie.inject end --> } END { printf "added lines: %s removed lines: %s total lines: %s
+git log --author='Your Name Here' --pretty=tformat: --numstat | gawk '{ add += <!-- @doxie.inject start -->; subs += <!-- @doxie.inject end -->; loc += <!-- @doxie.inject start --> - <!-- @doxie.inject end --> } END { printf "added lines: %s removed lines: %s total lines: %s
 ", add, subs, loc }' -
 ```
 
 __Alternatives:__
 ```sh
-git log --author='_Your_Name_Here_' --pretty=tformat: --numstat | awk '{ add += <!-- @doxie.inject start -->; subs += <!-- @doxie.inject end -->; loc += <!-- @doxie.inject start --> - <!-- @doxie.inject end --> } END { printf "added lines: %s, removed lines: %s, total lines: %s
+git log --author='Your Name Here' --pretty=tformat: --numstat | awk '{ add += <!-- @doxie.inject start -->; subs += <!-- @doxie.inject end -->; loc += <!-- @doxie.inject start --> - <!-- @doxie.inject end --> } END { printf "added lines: %s, removed lines: %s, total lines: %s
 ", add, subs, loc }' - # on Mac OSX
 ```
 
