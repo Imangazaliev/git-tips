@@ -297,6 +297,20 @@
         ]
    },
    {
+      "title": "Show",
+      "items": [
+         {
+            "title": "Показать изменения в коммите",
+            "description": "Также можно использовать `HEAD~1`, `HEAD~2` и т.д. для просмотра предыдущих коммитов.",
+            "tip": "git show HEAD"
+         },
+         {
+            "title": "Показать изменения в коммите (по хешу)",
+            "tip": "git show <commit-ish>"
+         }
+      ]
+   },
+   {
       "title": "Stash",
       "items": [
          {
@@ -312,6 +326,10 @@
             "alternatives": [
                "git stash save --include-untracked"
             ]
+         },
+         {
+            "title": "Спрятать текущие изменения за исключением файлов в индексе",
+            "tip": "git stash --keep-index"
          },
          {
             "title": "Показать список спрятанных изменений",
