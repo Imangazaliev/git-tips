@@ -696,7 +696,7 @@
          },
          {
             "title": "Показывает автора, время и хеш-коммита последнего изменения для указанного диапазона строк",
-            "tip": "git blame -L <start>,<end>"
+            "tip": "git blame <file-name> -L <start>,<end>"
          },
          {
             "title": "Show a Git logical variable",

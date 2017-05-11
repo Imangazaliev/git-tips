@@ -1081,7 +1081,7 @@ git blame <file-name>
 
 ### Показывает автора, время и хеш-коммита последнего изменения для указанного диапазона строк
 ```sh
-git blame -L <start>,<end>
+git blame <file-name> -L <start>,<end>
 ```
 
 ### Show a Git logical variable
