@@ -343,14 +343,19 @@
          },
          {
             "title": "Спрятать текущие изменения, включая неотслеживаемые файлы",
-            "tip": "git stash save -u",
+            "tip": "git stash -u",
             "alternatives": [
-               "git stash save --include-untracked"
+               "git stash --include-untracked"
             ]
          },
          {
             "title": "Спрятать текущие изменения за исключением файлов в индексе",
             "tip": "git stash --keep-index"
+         },
+         {
+            "title": "Спрятать только часть файла (файлов)",
+            "tip": "git stash -p",
+            "description": "Позволяет выбрать изменения, которые необходимо скрыть"
          },
          {
             "title": "Показать список спрятанных изменений",
