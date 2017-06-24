@@ -209,6 +209,27 @@
       ]
    },
    {
+      "title": "Index",
+      "items": [
+         {
+            "title": "Интерактивное добавление файлов в индекс",
+            "tip": "git add -i"
+         },
+         {
+            "title": "Добавить в индекс часть файла",
+            "tip": "git add -p"
+         },
+         {
+            "title": "Удалить файл из индекса",
+            "tip": "git reset HEAD <file-name>"
+         },
+         {
+            "title": "Удалить все файлы из индекса",
+            "tip": "git reset HEAD"
+         }
+      ]
+   },
+   {
       "title": "Log",
       "items": [
          {
@@ -379,10 +400,6 @@
       "title": "Разное",
       "items": [
          {
-            "title": "Интерактивное добавление файлов в индекс",
-            "tip": "git add -i"
-         },
-         {
             "title": "Everyday Git in twenty commands or so",
             "tip": "git help everyday"
          },
@@ -453,10 +470,6 @@
             "tip": "git reset <commit-ish>"
          },
          {
-            "title": "Удалить файл из индекса",
-            "tip": "git reset HEAD <file-name>"
-         },
-         {
             "title": "Показать историю коммитов только для текущей ветки",
             "tip": "git cherry -v master"
          },
@@ -478,10 +491,6 @@
          {
             "title": "Добавить удаленный репозиторий",
             "tip": "git remote add <remote-nickname> <remote-url>"
-         },
-         {
-            "title": "Добавить в индекс часть файла",
-            "tip": "git add -p"
          },
          {
             "title": "Автокомплит Git-команд в bash",
