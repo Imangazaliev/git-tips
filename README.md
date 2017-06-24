@@ -692,6 +692,15 @@ git tag -d <tag-name>
 git push origin :refs/tags/<tag-name>
 ```
 
+__Alternatives:__
+```sh
+git push origin :<tag-name>
+```
+
+```sh
+git push -d origin <tag-name>
+```
+
 ## Разное
 
 ### Everyday Git in twenty commands or so

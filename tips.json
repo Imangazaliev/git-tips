@@ -397,7 +397,11 @@
          },
          {
             "title": "Удалить тег в удаленном репозитории",
-            "tip": "git push origin :refs/tags/<tag-name>"
+            "tip": "git push origin :refs/tags/<tag-name>",
+            "alternatives": [
+               "git push origin :<tag-name>",
+               "git push -d origin <tag-name>"
+            ]
          }
       ]
    },
