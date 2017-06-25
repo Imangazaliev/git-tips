@@ -108,7 +108,10 @@
          },
          {
             "title": "Сделать коммит, обойдя хуки pre-commit и commit-msg",
-            "tip": "git commit --no-verify"
+            "tip": "git commit --no-verify",
+            "alternatives": [
+               "git commit -n"
+            ]
          },
          {
             "title": "Отметить коммит как исправление к указанному коммиту",
@@ -132,7 +135,7 @@
             "tip": "git config --global core.editor '$EDITOR'"
          },
          {
-            "title": "Игнорировать изменения прав доступа на файлы при коммите",
+            "title": "Игнорировать изменения прав доступа к файлам при коммите",
             "tip": "git config core.fileMode false"
          },
          {
@@ -318,6 +321,22 @@
         ]
    },
    {
+        "title": "Push",
+        "items": [
+            {
+               "title": "Отправить коммиты в удаленный репозиторий, перезаписав историю (force push)",
+               "tip": "git push --force",
+               "alternatives": [
+                  "git push -f"
+               ]
+            },
+            {
+               "title": "Forced push but still ensure you don't overwrite other's work",
+               "tip": "git push --force-with-lease <remote-name> <branch-name>"
+            }
+        ]
+   },
+   {
       "title": "Show",
       "items": [
          {
@@ -391,6 +410,14 @@
    {
       "title": "Tags",
       "items": [
+         {
+            "title": "Создать новый тег",
+            "tip": "git tag <tag-name>"
+         },
+         {
+            "title": "Отправить теги на удаленный репозиторий",
+            "tip": "git push --tags"
+         },
          {
             "title": "Удалить тег в локальном репозитории",
             "tip": "git tag -d <tag-name>"
@@ -683,14 +710,6 @@
          {
             "title": "Find lines matching the pattern (regex or string) in tracked files",
             "tip": "git grep --heading --line-number 'foo bar'"
-         },
-         {
-            "title": "Отправить коммиты в удаленный репозиторий, перезаписав историю (force push)",
-            "tip": "git push -f <remote-name> <branch-name>"
-         },
-         {
-            "title": "Forced push but still ensure you don't overwrite other's work",
-            "tip": "git push --force-with-lease <remote-name> <branch-name>"
          },
          {
             "title": "Количество коммитов в ветке",

@@ -48,7 +48,7 @@
 - [Показать конфиг и все псевдонимы (alias)](#Показать-конфиг-и-все-псевдонимы-alias)
 - [Изменить локальный/глобальный конфиг git](#Изменить-локальныйглобальный-конфиг-git)
 - [Изменить текстовый редактор](#Изменить-текстовый-редактор)
-- [Игнорировать изменения прав доступа на файлы при коммите](#Игнорировать-изменения-прав-доступа-на-файлы-при-коммите)
+- [Игнорировать изменения прав доступа к файлам при коммите](#Игнорировать-изменения-прав-доступа-к-файлам-при-коммите)
 - [Сделать git чувствительным к регистру](#Сделать-git-чувствительным-к-регистру)
 - [Включить автоматическое исправление опечаток](#Включить-автоматическое-исправление-опечаток)
 - [Отключить цветной вывод Git](#Отключить-цветной-вывод-git)
@@ -97,6 +97,11 @@
 
 - [Слить ветку feature с master, объединив все коммиты ветки feature в один](#Слить-ветку-feature-с-master-объединив-все-коммиты-ветки-feature-в-один)
 
+### Push
+
+- [Отправить коммиты в удаленный репозиторий, перезаписав историю (force push)](#Отправить-коммиты-в-удаленный-репозиторий-перезаписав-историю-force-push)
+- [Forced push but still ensure you don't overwrite other's work](#forced-push-but-still-ensure-you-dont-overwrite-others-work)
+
 ### Show
 
 - [Показать изменения в коммите](#Показать-изменения-в-коммите)
@@ -116,6 +121,8 @@
 
 ### Tags
 
+- [Создать новый тег](#Создать-новый-тег)
+- [Отправить теги на удаленный репозиторий](#Отправить-теги-на-удаленный-репозиторий)
 - [Удалить тег в локальном репозитории](#Удалить-тег-в-локальном-репозитории)
 - [Удалить тег в удаленном репозитории](#Удалить-тег-в-удаленном-репозитории)
 
@@ -183,8 +190,6 @@
 - [Поиск коммита с багом при помощи бинарного поиска](#Поиск-коммита-с-багом-при-помощи-бинарного-поиска)
 - [Показать все локальные ветки, отсортировав их по дате изменения](#Показать-все-локальные-ветки-отсортировав-их-по-дате-изменения)
 - [Find lines matching the pattern (regex or string) in tracked files](#find-lines-matching-the-pattern-regex-or-string-in-tracked-files)
-- [Отправить коммиты в удаленный репозиторий, перезаписав историю (force push)](#Отправить-коммиты-в-удаленный-репозиторий-перезаписав-историю-force-push)
-- [Forced push but still ensure you don't overwrite other's work](#forced-push-but-still-ensure-you-dont-overwrite-others-work)
 - [Количество коммитов в ветке](#Количество-коммитов-в-ветке)
 - [Добавить заметку](#Добавить-заметку)
 - [Apply commit from another repository](#apply-commit-from-another-repository)
@@ -344,6 +349,11 @@ git commit --only <file_path>
 git commit --no-verify
 ```
 
+__Alternatives:__
+```sh
+git commit -n
+```
+
 ### Отметить коммит как исправление к указанному коммиту
 ```sh
 git commit --fixup <SHA-1>
@@ -366,7 +376,7 @@ git config [--global] --edit
 git config --global core.editor '$EDITOR'
 ```
 
-### Игнорировать изменения прав доступа на файлы при коммите
+### Игнорировать изменения прав доступа к файлам при коммите
 ```sh
 git config core.fileMode false
 ```
@@ -594,6 +604,23 @@ git log master..<branch-name> --oneline | tail -1
 git merge feature --squash
 ```
 
+## Push
+
+### Отправить коммиты в удаленный репозиторий, перезаписав историю (force push)
+```sh
+git push --force
+```
+
+__Alternatives:__
+```sh
+git push -f
+```
+
+### Forced push but still ensure you don't overwrite other's work
+```sh
+git push --force-with-lease <remote-name> <branch-name>
+```
+
 ## Show
 
 ### Показать изменения в коммите
@@ -681,6 +708,16 @@ git stash drop <stash@{n}>
 ```
 
 ## Tags
+
+### Создать новый тег
+```sh
+git tag <tag-name>
+```
+
+### Отправить теги на удаленный репозиторий
+```sh
+git push --tags
+```
 
 ### Удалить тег в локальном репозитории
 ```sh
@@ -1069,16 +1106,6 @@ git for-each-ref --sort=-committerdate --format='%(refname:short)' refs/heads/
 ### Find lines matching the pattern (regex or string) in tracked files
 ```sh
 git grep --heading --line-number 'foo bar'
-```
-
-### Отправить коммиты в удаленный репозиторий, перезаписав историю (force push)
-```sh
-git push -f <remote-name> <branch-name>
-```
-
-### Forced push but still ensure you don't overwrite other's work
-```sh
-git push --force-with-lease <remote-name> <branch-name>
 ```
 
 ### Количество коммитов в ветке
