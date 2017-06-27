@@ -157,7 +157,7 @@
 - [Показать все игнорируемые файлы](#Показать-все-игнорируемые-файлы)
 - [Create new working tree from a repository (git 2.5)](#create-new-working-tree-from-a-repository-git-25)
 - [Create new working tree from HEAD state](#create-new-working-tree-from-head-state)
-- [Не отслеживать файлы (без удаления)](#Не-отслеживать-файлы-без-удаления)
+- [Не отслеживать файл (без удаления)](#Не-отслеживать-файл-без-удаления)
 - [Before deleting untracked files/directory, do a dry run to get the list of these files/directories](#before-deleting-untracked-filesdirectory-do-a-dry-run-to-get-the-list-of-these-filesdirectories)
 - [Принудительно удалить неотслеживаемые файлы](#Принудительно-удалить-неотслеживаемые-файлы)
 - [Принудительно удалить неотслеживаемую директорию](#Принудительно-удалить-неотслеживаемую-директорию)
@@ -320,8 +320,14 @@ git branch -u origin/mybranch
 ## Commit
 
 ### Изменить сообщение последнего коммита
+При выполнении команды откроется редактор, указанный в настройках git. Необходимо изменить текст сообщения, сохранить файл и закрыть редактор.
+
+Сообщение можно указать и непосредственно при вызове команды с помощью опции `-m` (`--message`)
 ```sh
 git commit --amend
+
+# можно указать сообщение с помощью опции -m
+git commit --amend -m "New message"
 ```
 
 ### Изменить предыдущий коммит без изменения сообщения к коммиту
@@ -900,7 +906,8 @@ git worktree add -b <branch-name> <path> <start-point>
 git worktree add --detach <path> HEAD
 ```
 
-### Не отслеживать файлы (без удаления)
+### Не отслеживать файл (без удаления)
+Удаляет файл из git, сохраняя при этом его локальную копию
 ```sh
 git rm --cached <file_path>
 ```
