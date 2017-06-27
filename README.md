@@ -2,7 +2,7 @@
 
 Часто используемые трюки и советы при работе с Git.
 
-Хотите дополнить список? Ознакомьтесь с [contributing.md](contributing.md)
+Хотите дополнить список? Ознакомьтесь с [CONTRIBUTING.md](CONTRIBUTING.md)
 
 [English](http://git.io/git-tips) | [中文](https://github.com/521xueweihan/git-tips) | [Русский](https://github.com/Imangazaliev/git-tips)
 
