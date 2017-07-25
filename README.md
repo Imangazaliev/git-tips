@@ -33,6 +33,14 @@
 - [Найти ветки, которые содержат коммит с указанным хешем](#Найти-ветки-которые-содержат-коммит-с-указанным-хешем)
 - [Track upstream branch](#track-upstream-branch)
 
+### Clean
+
+- [Принудительно удалить неотслеживаемые файлы](#Принудительно-удалить-неотслеживаемые-файлы)
+- [Принудительно удалить неотслеживаемые файлы и директории](#Принудительно-удалить-неотслеживаемые-файлы-и-директории)
+- [Удалить все файлы, которые находятся в `.gitignore`](#Удалить-все-файлы-которые-находятся-в-gitignore)
+- [Before deleting untracked files/directory, do a dry run to get the list of these files/directories](#before-deleting-untracked-filesdirectory-do-a-dry-run-to-get-the-list-of-these-filesdirectories)
+- [Dry run (any command that supports dry-run flag should do)](#dry-run-any-command-that-supports-dry-run-flag-should-do)
+
 ### Commit
 
 - [Изменить сообщение последнего коммита](#Изменить-сообщение-последнего-коммита)
@@ -158,9 +166,6 @@
 - [Create new working tree from a repository (git 2.5)](#create-new-working-tree-from-a-repository-git-25)
 - [Create new working tree from HEAD state](#create-new-working-tree-from-head-state)
 - [Не отслеживать файл (без удаления)](#Не-отслеживать-файл-без-удаления)
-- [Before deleting untracked files/directory, do a dry run to get the list of these files/directories](#before-deleting-untracked-filesdirectory-do-a-dry-run-to-get-the-list-of-these-filesdirectories)
-- [Принудительно удалить неотслеживаемые файлы](#Принудительно-удалить-неотслеживаемые-файлы)
-- [Принудительно удалить неотслеживаемую директорию](#Принудительно-удалить-неотслеживаемую-директорию)
 - [Обновить все субмодули](#Обновить-все-субмодули)
 - [Показать коммиты текущей ветки, которые будут слиты в мастер](#Показать-коммиты-текущей-ветки-которые-будут-слиты-в-мастер)
 - [Retrieve the commit hash of the initial revision](#retrieve-the-commit-hash-of-the-initial-revision)
@@ -174,11 +179,9 @@
 - [Show changes using common diff tools](#show-changes-using-common-diff-tools)
 - [Don’t consider changes for tracked file](#dont-consider-changes-for-tracked-file)
 - [Undo assume-unchanged](#undo-assume-unchanged)
-- [Удалить все файлы, которые находятся в `.gitignore`](#Удалить-все-файлы-которые-находятся-в-gitignore)
 - [Восстановить удаленный файл](#Восстановить-удаленный-файл)
 - [Restore file to a specific commit-hash](#restore-file-to-a-specific-commit-hash)
 - [Check if the change was a part of a release](#check-if-the-change-was-a-part-of-a-release)
-- [Dry run (any command that supports dry-run flag should do)](#dry-run-any-command-that-supports-dry-run-flag-should-do)
 - [Squash fixup commits normal commits](#squash-fixup-commits-normal-commits)
 - [Показать список игнорируемых файлов](#Показать-список-игнорируемых-файлов)
 - [Статус игнорируемых файлов](#Статус-игнорируемых-файлов)
@@ -315,6 +318,38 @@ git branch --contains <commit-ish>
 ### Track upstream branch
 ```sh
 git branch -u origin/mybranch
+```
+
+## Clean
+
+### Принудительно удалить неотслеживаемые файлы
+```sh
+git clean -f
+```
+
+### Принудительно удалить неотслеживаемые файлы и директории
+```sh
+git clean -f -d
+```
+
+__Alternatives:__
+```sh
+git clean -df
+```
+
+### Удалить все файлы, которые находятся в `.gitignore`
+```sh
+git clean -X -f
+```
+
+### Before deleting untracked files/directory, do a dry run to get the list of these files/directories
+```sh
+git clean -n
+```
+
+### Dry run (any command that supports dry-run flag should do)
+```sh
+git clean -fd --dry-run
 ```
 
 ## Commit
@@ -917,26 +952,6 @@ __Alternatives:__
 git rm --cached -r <directory_path>
 ```
 
-### Before deleting untracked files/directory, do a dry run to get the list of these files/directories
-```sh
-git clean -n
-```
-
-### Принудительно удалить неотслеживаемые файлы
-```sh
-git clean -f
-```
-
-### Принудительно удалить неотслеживаемую директорию
-```sh
-git clean -f -d
-```
-
-__Alternatives:__
-```sh
-git clean -df
-```
-
 ### Обновить все субмодули
 ```sh
 git submodule foreach git pull
@@ -1029,11 +1044,6 @@ git update-index --assume-unchanged <file_name>
 git update-index --no-assume-unchanged <file_name>
 ```
 
-### Удалить все файлы, которые находятся в `.gitignore`
-```sh
-git clean -X -f
-```
-
 ### Восстановить удаленный файл
 ```sh
 git checkout <deleting_commit>^ -- <file_path>
@@ -1047,11 +1057,6 @@ git checkout <commit-ish> -- <file_path>
 ### Check if the change was a part of a release
 ```sh
 git name-rev --name-only <SHA-1>
-```
-
-### Dry run (any command that supports dry-run flag should do)
-```sh
-git clean -fd --dry-run
 ```
 
 ### Squash fixup commits normal commits

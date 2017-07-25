@@ -84,6 +84,34 @@
       ]
    },
    {
+      "title": "Clean",
+      "items": [
+         {
+            "title": "Принудительно удалить неотслеживаемые файлы",
+            "tip": "git clean -f"
+         },
+         {
+            "title": "Принудительно удалить неотслеживаемые файлы и директории",
+            "tip": "git clean -f -d",
+            "alternatives": [
+               "git clean -df"
+            ]
+         },
+         {
+            "title": "Удалить все файлы, которые находятся в `.gitignore`",
+            "tip": "git clean -X -f"
+         },
+         {
+            "title": "Before deleting untracked files/directory, do a dry run to get the list of these files/directories",
+            "tip": "git clean -n"
+         },
+         {
+            "title": "Dry run (any command that supports dry-run flag should do)",
+            "tip": "git clean -fd --dry-run"
+         }
+      ]
+   },
+   {
       "title": "Commit",
       "items": [
          {
@@ -570,21 +598,6 @@
             ]
          },
          {
-            "title": "Before deleting untracked files/directory, do a dry run to get the list of these files/directories",
-            "tip": "git clean -n"
-         },
-         {
-            "title": "Принудительно удалить неотслеживаемые файлы",
-            "tip": "git clean -f"
-         },
-         {
-            "title": "Принудительно удалить неотслеживаемую директорию",
-            "tip": "git clean -f -d",
-            "alternatives": [
-               "git clean -df"
-            ]
-         },
-         {
             "title": "Обновить все субмодули",
             "tip": "git submodule foreach git pull",
             "alternatives": [
@@ -650,10 +663,6 @@
             "tip": "git update-index --no-assume-unchanged <file_name>"
          },
          {
-            "title": "Удалить все файлы, которые находятся в `.gitignore`",
-            "tip": "git clean -X -f"
-         },
-         {
             "title": "Восстановить удаленный файл",
             "tip": "git checkout <deleting_commit>^ -- <file_path>"
          },
@@ -664,10 +673,6 @@
          {
             "title": "Check if the change was a part of a release",
             "tip": "git name-rev --name-only <SHA-1>"
-         },
-         {
-            "title": "Dry run (any command that supports dry-run flag should do)",
-            "tip": "git clean -fd --dry-run"
          },
          {
             "title": "Squash fixup commits normal commits",
