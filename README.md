@@ -227,7 +227,7 @@ git branch <branch-name> && git checkout <branch-name>
 
 ### Создать новую ветку без родительской ветки
 ```sh
-git checkout --orphan <branch-name>
+git checkout --orpha <branch-name>
 ```
 
 ### Быстрое переключение на предыдущую ветку
