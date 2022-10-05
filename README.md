@@ -108,7 +108,8 @@
 ### Push
 
 - [Отправить коммиты в удаленный репозиторий, перезаписав историю (force push)](#Отправить-коммиты-в-удаленный-репозиторий-перезаписав-историю-force-push)
-- [Forced push but still ensure you don't overwrite other's work](#forced-push-but-still-ensure-you-dont-overwrite-others-work)
+- [Отправить коммиты в удаленный репозиторий с проверкой, что вы не затираете чужие коммиты](#Отправить-коммиты-в-удаленный-репозиторий-с-проверкой-что-вы-не-затираете-чужие-коммиты)
+- [Автоматически устанавливать remote для ветки при пуше](#Автоматически-устанавливать-remote-для-ветки-при-пуше)
 
 ### Show
 
@@ -657,9 +658,16 @@ __Alternatives:__
 git push -f
 ```
 
-### Forced push but still ensure you don't overwrite other's work
+### Отправить коммиты в удаленный репозиторий с проверкой, что вы не затираете чужие коммиты
 ```sh
 git push --force-with-lease <remote-name> <branch-name>
+```
+
+### Автоматически устанавливать remote для ветки при пуше
+
+### 
+```sh
+git config --global push.autoSetupRemote true 
 ```
 
 ## Show
