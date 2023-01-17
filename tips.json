@@ -762,7 +762,12 @@
          {
             "title": "Сделать резервную копию неотслеживаемых файлов",
             "tip": "git ls-files --others -i --exclude-standard | xargs zip untracked.zip"
-         }
+         },
+         {
+            "title": "Навсегда удалить файл/директорию",
+            "description": "Будут удалены файлы и коммиты. Вместо `<folder>` можно использовать регулярные выражения. Например, *.jpg",
+            "tip": "rm -rf <folder>\ngit commit -am 'remove files'\ngit filter-branch --force --index-filter 'git rm -r --cached --ignore-unmatch <folder>' --prune-empty --tag-name-filter cat -- --all\nrm -Rf .git/refs/original\nrm -Rf .git/logs/\ngit gc --aggressive --prune=now"
+        }
       ]
    }
 ]

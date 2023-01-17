@@ -205,6 +205,7 @@
 - [Показать название репозитория](#Показать-название-репозитория)
 - [Generates a summary of pending changes](#generates-a-summary-of-pending-changes)
 - [Сделать резервную копию неотслеживаемых файлов](#Сделать-резервную-копию-неотслеживаемых-файлов)
+- [Навсегда удалить файл/директорию](#Навсегда-удалить-файлдиректорию)
 
 
 <!-- Don’t remove or change the comment below – that can break automatic updates. More info at <http://npm.im/doxie.inject>. -->
@@ -1182,6 +1183,17 @@ git request-pull v1.0 https://git.ko.xz/project master:for-linus
 ### Сделать резервную копию неотслеживаемых файлов
 ```sh
 git ls-files --others -i --exclude-standard | xargs zip untracked.zip
+```
+
+### Навсегда удалить файл/директорию
+Будут удалены файлы и коммиты. Вместо `<folder>` можно использовать регулярные выражения. Например, *.jpg
+```sh
+rm -rf <folder>
+git commit -am 'remove files'
+git filter-branch --force --index-filter 'git rm -r --cached --ignore-unmatch <folder>' --prune-empty --tag-name-filter cat -- --all
+rm -Rf .git/refs/original
+rm -Rf .git/logs/
+git gc --aggressive --prune=now
 ```
 <!-- Don’t remove or change the comment below – that can break automatic updates. More info at <http://npm.im/doxie.inject>. -->
 <!-- @doxie.inject end -->
